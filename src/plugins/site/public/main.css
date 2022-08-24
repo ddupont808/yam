@@ -1,0 +1,74 @@
+/* [id]:not(:target):not([id="00"]) {
+  display: none;
+} */
+
+/* form > input[id="0"] ~ div [for="0"],
+form > input[id="1"] ~ div [for="1"],
+form > input[id="2"] ~ div [for="2"],
+form > input[id="3"] ~ div [for="3"],
+form > input[id="4"] ~ div [for="4"] {
+  border-bottom: 4px solid rgb(63, 63, 70);
+} */
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  width: max-content;
+
+  left: 50%;
+  top: -0.5em;
+
+  transform: translate(-50%, -100%);
+}
+
+.has-tooltip:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  z-index: 50;
+}
+
+:not(:target) > .popup,
+.page:not(:target) {
+  display: none;
+}
+
+form * {
+  transition: all 0.075s ease;
+}
+
+.progress::after {
+  transition: width 0.2s ease;
+}
+
+.hover,
+.hover1 {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+form:hover .hover1 {
+  opacity: 1;
+}
+
+form:not(:hover) .hover {
+  opacity: 0;
+}
+
+form:hover .hover2 {
+  text-decoration-line: underline;
+}
+
+form:hover a[href^="/item/"]:hover ~ * .hover3,
+form:hover a[href^="/item/"].hover3:hover {
+  text-decoration-line: underline;
+}
+
+form:hover a[href^="/item/"]:hover .hover4 {
+  text-decoration-line: underline;
+}
+
+[for]:hover > [h-xfor],
+[for]:hover > [h-for] {
+  opacity: 1;
+}

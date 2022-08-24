@@ -1,0 +1,23 @@
+.usr
+
+tmp
+logs
+build
+
+docs/*
+
+src/assets/tor/*
+src/assets/monero/*
+src/assets/bitcoin/*
+
+.env
+
+node_modules
+# .vscode
+
+.DS_Store
+Thumbs.db
+
+dist/**/*
+
+pnpm-lock.yaml

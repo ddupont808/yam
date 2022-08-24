@@ -1,0 +1,40 @@
+<div class="flex flex-col flex-grow before:flex before:flex-grow before:h-12 after:flex after:flex-grow">
+  <!-- <div class="mx-auto text-center">
+    <h1 class="my-2 text-2xl font-normal text-zinc-300">yam</h1> -->
+  <div class="p-8 mx-auto text-center border rounded-sm w-96 border-zinc-800">
+    <h1 class="mb-8 text-2xl text-slate-200">Sign in or Sign up</h1>
+
+    <form class="flex flex-col content-center gap-2 py-4 text-center" method="post">
+      <input class="w-full p-2 border rounded-sm outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="text" placeholder="Username" autocomplete="off" name="user" required />
+      <input class="w-full p-2 border rounded-sm outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="password" placeholder="Password" autocomplete="off" name="pass" required />
+      <input class="w-full p-2 border rounded-sm outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="password" placeholder="Confirm Password" name="pass_conf" required />
+
+      <button type="submit" class="px-5 py-2 mt-3 text-center rounded-sm text-zinc-200 bg-zinc-700">
+        Open Account
+      </button>
+    </form>
+
+    <div class="relative my-2 before:absolute before:h-3/5 before:border-b before:border-zinc-700 before:left-0 before:right-0">
+      <span class="relative px-2 bg-zinc-900 text-zinc-700">or</span>
+    </div>
+
+    <form class="flex flex-row content-center py-4 text-center" method="post">
+      <input class="w-full p-2 border border-r-0 rounded-sm outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="password" placeholder="Sign-in key" name="key" required />
+      <button type="submit" class="px-5 py-2 text-center border rounded-sm text-zinc-200 bg-zinc-700 border-zinc-700">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 24 24" height="16" fill="currentColor">
+          <path d="M8.612 16.337l3.746-3.747 1.027.183a5 5 0 1 0-4.039-4.039l.184 1.028-6.994 6.994.177 2.651 2.651.177 1.833-1.833-.707-.707a1 1 0 0 1 1.415-1.414l.707.707zm.707-13.435a7 7 0 1 1 3.715 11.84L6.137 21.64l-4.43-.295a1 1 0 0 1-.932-.932l-.295-4.43 6.898-6.898a6.992 6.992 0 0 1 1.94-6.183zm4.242 5.656A2 2 0 1 1 16.39 5.73a2 2 0 0 1-2.829 2.828z"></path>
+        </svg>
+      </button>
+    </form>
+
+    <p class="flex mt-8 text-zinc-600">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="18" fill="currentColor" class="inline pr-1">
+          <path d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0-13a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V6a1 1 0 0 1 1-1zm0 10a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"></path>
+        </svg>Different username and password combination will open different
+        accounts, be careful when entering your details as lost accounts can not
+        be recovered!</span>
+    </p>
+  </div>
+  <!-- </div> -->
+</div>

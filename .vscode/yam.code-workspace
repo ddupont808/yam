@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "path": ".."
+    },
+    {
+      "path": "..\\src\\plugins\\site"
+    },
+    {
+      "path": "..\\src"
+    }
+  ]
+  //   "settings": {
+  //     "github.copilot.enable": {
+  //       "*": false
+  //     }
+  //   }
+}

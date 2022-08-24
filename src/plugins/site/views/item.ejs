@@ -1,0 +1,182 @@
+<div class="flex flex-col">
+  <div class="flex flex-row items-stretch justify-between gap-4">
+
+    <!-- Item Data -->
+    <% for(const [q, quantity] of Object.entries(item.quantity)) { %>
+    <input type="radio" name="quantity" class="hidden" id="<%= q %>" value="<%= q %>" <%= q == 0 ? "checked" : '' %> />
+
+    <style>
+      input[id="<%=q %>"]:checked~div label[for="<%=q %>"] {
+        color: rgb(212 212 216);
+        background-color: rgb(82 82 91 / 0.2);
+        border-bottom-color: rgb(63 63 70);
+        cursor: default;
+      }
+
+      input[id="<%=q %>"]:not(:checked)~div button [for="<%=q %>"] {
+        display: none;
+      }
+    </style>
+    <% } %>
+
+    <% for(const [s, shipping] of Object.entries(item.shipping)) { %>
+    <input type="radio" name="shipping" class="hidden" id="s<%= s %>" <%= s == 0 ? "checked" : '' %> />
+    <style>
+      input[id="s<%=s %>"]:not(:checked)~div [h-for="s<%=s %>"] {
+        display: none;
+      }
+
+      input[id="s<%=s %>"]:checked~div [h-xfor="s<%=s %>"] {
+        display: none;
+      }
+
+      <% for(const [q, quantity] of Object.entries(item.quantity)) {
+
+        %>input[id="<%=q %>"]~input[id="s<%=s %>"]:not(:checked)~div [h-qs="<%=q %><%=s %>"],
+        input[id="<%=q %>"]:not(:checked)~input[id="s<%=s %>"]~div [h-qs="<%=q %><%=s %>"],
+        input[id="<%=q %>"]:not(:checked)~input[id="s<%=s %>"]:not(:checked)~div [h-qs="<%=q %><%=s %>"] {
+          display: none !important;
+        }
+
+        <%
+      }
+
+      %>
+    </style>
+    <% } %>
+
+
+    <!-- Item Checkout -->
+    <div class="flex flex-col flex-grow max-w-6xl gap-3 py-4 pl-4 mx-auto">
+      <h1 class="flex items-end py-1 text-2xl font-bold opacity-70 hover1 hover3 text-zinc-100 drop-shadow-sm ">
+        <%= item.title %>
+      </h1>
+      <div class="flex flex-row gap-3">
+        <img draggable="false" class="object-fill rounded-md w-96 h-96" src="<%= item.image %>" alt="<%= item.title %>" />
+        <div class="flex-grow overflow-hidden rounded-md bg-zinc-800">
+          <div class="grid flex-shrink grid-cols-1 gap-0 pb-2">
+            <h2 class="flex items-end py-1 pl-3 pr-8 text-lg font-semibold opacity-70 hover1 hover3 text-zinc-100 drop-shadow-sm ">
+              Description
+            </h2>
+            <p class="flex items-center flex-grow py-1 pl-3 pr-8 text-sm text-zinc-300">
+              <%= item.description %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded-md">
+        <!-- Item Quantities -->
+        <div class="flex flex-col flex-shrink text-xs bg-zinc-800 text-zinc-400" a>
+          <!-- <span class="text-center pb-0.5"> Quantity </span> -->
+          <div class="flex flex-row flex-shrink border-b border-b-zinc-700">
+            <% for(const [q, quantity] of Object.entries(item.quantity)) {
+              %>
+            <label type="radio" name="quantity" for="<%= q %>" class="flex flex-col cursor-pointer items-center justify-center w-1/3 pt-1 pb-0.5 text-center target:outline-none border-b-4 text-zinc-400 hover:bg-zinc-600/10 border-b-transparent">
+              <span class="font-bold"><%= `${quantity.name} ${item.unit}s` %></span>
+              <span class="text-zinc-400/75"><%= `${unit + quantity.price} (${unit + parseFloat(quantity.price / parseFloat(quantity.name)).toFixed(2) }/${item.unit})` %></span>
+            </label>
+            <% } %>
+          </div>
+        </div>
+
+        <!-- Checkout Tab View -->
+        <div class="flex flex-row flex-grow bg-zinc-700">
+          <!-- Shipping Methods-->
+          <div class="flex flex-col flex-grow py-2 pl-2">
+            <div class="grid flex-shrink grid-flow-col text-xs text-zinc-400">
+              <p>Shipping Method</p>
+            </div>
+
+            <div class="flex-grow my-1 text-xs">
+              <% for(const [s, shipping] of Object.entries(item.shipping)) {
+                %>
+
+              <label class="flex flex-row items-center px-0.5 text-zinc-400 select-text" for="s<%= s %>">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="16" fill="currentColor" class="opacity-30" h-xfor="s<%= s %>">
+                  <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10z"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="16" fill="currentColor" class="opacity-80" h-for="s<%= s %>">
+                  <path d="M10 20.565c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10z"></path>
+                </svg>
+
+                <span class="flex-grow mx-0.5 text-zinc-300"><%= shipping.name %></span>
+
+                <span class="flex-shrink mx-0.5 text-right">
+                  +<%= shipping.price %>
+                </span>
+              </label>
+
+              <% } %>
+            </div>
+
+            <div class="flex-shrink mt-1 text-xs select-text">
+              <span class="underline text-zinc-400 decoration-dotted cursor-help">Estimated Arrival</span><span class="mr-1 text-zinc-400">:</span><span class="text-zinc-300">3-5 days</span>
+            </div>
+            <p class="flex-shrink text-xs select-text text-zinc-400">Only ships to North America, South America, and Europe</p>
+          </div>
+
+          <div class="flex flex-col items-center justify-center flex-shrink m-2 mx-3">
+            <button type="submit" class="flex flex-col min-w-full items-center gap-0.5 px-6 py-2 bg-green-600 border rounded-md border-green-700/90 drop-shadow-sm h-fit text-zinc-50">
+              <% for(const [q, quantity] of Object.entries(item.quantity)) { %>
+              <span class="font-bold leading-4 text-zinc-300 " for="<%= q %>">Buy <%= quantity.name %> <%= item.unit ? item.unit + "s" : "" %></span>
+              <% for(const [s, shipping] of Object.entries(item.shipping ?? q)) { %>
+              <span class="font-semibold leading-4 text-zinc-300/75" h-qs="<%= q %><%= s %>"><%= unit %><%= (parseFloat(quantity.price) + parseFloat(shipping.price)).toFixed(2)  %></span>
+              <% } %>
+              <% } %>
+            </button>
+
+            <% for(const [q, quantity] of Object.entries(item.quantity)) { %>
+            <% for(const [s, shipping] of Object.entries(item.shipping ?? q)) { %>
+            <span class="text-xs select-text text-zinc-400/80" h-qs="<%= q %><%= s %>"><b>Total:</b> <%= (parseFloat(quantity.price) * 0.02415 + parseFloat(shipping.price) * .0021006).toFixed(8) %> USD</span>
+            <% } %>
+            <% } %>
+          </div>
+        </div>
+      </div>
+
+      <div>
+      </div>
+      <div class="overflow-hidden border rounded-md border-zinc-800">
+        <div class="grid flex-shrink grid-cols-1 gap-0">
+          <div class="flex flex-row px-3 py-2 text-lg font-semibold text-zinc-300 bg-zinc-800">
+            <p class="flex-grow ">Reviews
+            </p>
+            <button type="submit" class="items-center flex-shrink px-2 py-1 text-sm bg-green-600 border rounded-md border-green-700/90 drop-shadow-sm h-fit ">
+              <span class="font-bold text-zinc-300 ">Leave Review</span>
+            </button>
+          </div>
+          <% for(const [q, review] of Object.entries(item.quantity)) { %>
+          <div class="flex flex-row p-3 text-sm border-t cursor-pointer text-zinc-300 border-zinc-800 hover:bg-zinc-800/30">
+            <p class="flex-grow">
+              <%= review.name %>
+            </p>
+            <p class="text-zinc-400">2 days ago</p>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item Metadata -->
+    <div class="flex flex-col flex-1 max-w-sm py-4 pr-4">
+      <div class="grid flex-shrink grid-cols-1 gap-0 p-1">
+        <h2 class="flex items-end py-1 pl-3 pr-8 font-semibold opacity-70 hover1 hover3 text-zinc-100 drop-shadow-sm ">
+          <%= item.author %>
+        </h2>
+        <p class="flex items-center px-2 py-1 text-xs text-zinc-300">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="16" fill="currentColor" class="mx-0.5">
+            <path d="M12 7A5 5 0 1 0 2 7c0 1.726 1.66 5.031 5 9.653 3.34-4.622 5-7.927 5-9.653zM7 20C2.333 13.91 0 9.577 0 7a7 7 0 1 1 14 0c0 2.577-2.333 6.91-7 13zm0-9a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
+          </svg>
+          <span class="flex-grow">From Country</span>🏳️‍🌈
+        </p>
+        <p class="flex items-center px-2 py-1 text-xs text-zinc-300">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -4 24 24" width="16" fill="currentColor" class="mx-0.5">
+            <path d="M3 0h14a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3zm10.874 5a4.002 4.002 0 0 1-7.748 0H2V5h16v2h-4.126zm-2.142 0H8.268a2 2 0 0 0 3.464 0z"></path>
+          </svg>
+          <%= item.installs %> installs
+        </p>
+      </div>
+    </div>
+
+  </div>

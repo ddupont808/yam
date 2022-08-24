@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": true
+  // "markdown.styles": ["./docs/style.css"],
+  // "markdown.styles": ["./docs/style.css"]
+  // "files.associations": {
+  //   "*.css": "tailwindcss"
+  // },
+  // "editor.quickSuggestions": {
+  //   "strings": true
+  // }
+}

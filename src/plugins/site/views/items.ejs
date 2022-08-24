@@ -1,0 +1,14 @@
+<header class="flex flex-row content-center gap-2 px-5 pt-4 text-zinc-400">
+  <% for(const [i, category] of Object.entries(categories)) { %>
+  <span class="px-4 py-1 border rounded-full bg-zinc-700 border-zinc-600"><%= category %></span>
+  <% } %>
+</header>
+
+<div class="grid grid-cols-0.5 gap-4 m-4 md:grid-cols-2 lg:grid-cols-3 select-none">
+  <% for(const [i, item] of Object.entries(items)) { const path =
+  `/checkout/${encodeURIComponent(item.key)}`; %>
+
+  <iframe src="<%= path %>" class="flex w-full h-96"></iframe>
+
+  <% } %>
+</div>

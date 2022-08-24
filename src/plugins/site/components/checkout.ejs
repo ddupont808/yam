@@ -1,0 +1,204 @@
+<% 
+const path = `/item/${encodeURIComponent(item.key)}`;
+console.log(item);
+// TODO: remove the %= /*id*/ % stuff
+%>
+<form class="w-full h-full">
+  <input type="checkbox" name="quantity" class="hidden" id="checkout" />
+  <style>
+    #checkout:not(:checked)~modal {
+      display: none;
+    }
+  </style>
+  <modal class="absolute z-50 flex flex-row w-full h-full p-2 overflow-hidden bg-zinc-900/75">
+    <label for="checkout" class="absolute flex w-full h-full l-0 r-0 z-index-1"></label>
+    <div class="flex flex-row gap-4 p-4 m-auto rounded-md drop-shadow-sm w-fit h-fit bg-zinc-800 hover:drop-shadow-lg">
+      <div class="flex flex-col flex-shrink gap-1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/220px-QR_code_for_mobile_English_Wikipedia.svg.png" class="h-32 mx-auto mb-2 bg-white rounded-md" />
+        <h2 class="text-center text-zinc-300">Send 0.0197381 USD to</h2>
+        <code class="max-w-md p-1 px-2 text-center break-all rounded-md drop-shadow-md bg-zinc-700 text-zinc-400">888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H</code>
+        <a class="max-w-md my-2 text-center underline break-words cursor-pointer text-cyan-500" href="/order/1" target="_parent">Please click here once you have done so</a>
+        <span class="max-w-md text-center break-words text-zinc-500">Do not refresh this page after sending the transaction or your money will be lost!</a>
+      </div>
+    </div>
+  </modal>
+  <div class="relative h-full overflow-hidden border border-opacity-50 rounded-md drop-shadow-sm border-zinc-800 bg-zinc-700">
+    <div class="flex flex-col h-full bg-zinc-800">
+      <a href="<%= path %>" target="_parent" class="flex-grow bg-center bg-contain" style="background-image: url(<%= item.image %>);">
+      </a>
+
+      <!-- Favorite button -->
+      <div class="hover absolute flex flex-shrink items-center w-auto h-auto p-1.5 rounded-md drop-shadow-md border border-opacity-75 opacity-90 border-zinc-500 top-2 right-2 bg-zinc-800 text-red-400">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -4 24 24" width="32" fill="currentColor">
+          <path d="M3.636 7.208L10 13.572l6.364-6.364a3 3 0 1 0-4.243-4.243L10 5.086l-2.121-2.12a3 3 0 0 0-4.243 4.242zM9.293 1.55l.707.707.707-.707a5 5 0 1 1 7.071 7.071l-7.07 7.071a1 1 0 0 1-1.415 0l-7.071-7.07a5 5 0 1 1 7.07-7.071z"></path>
+        </svg>
+      </div>
+
+      <!-- Item category -->
+      <div class="hover1 opacity-90 absolute top-2 left-2 drop-shadow-md w-auto h-auto rounded-md border border-zinc-500/75 p-1.5 pr-2 bg-zinc-800 grid grid-flow-col gap-0.5 text-xs text-cyan-500">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1.5 -1.5 24 24" width="16" class="mr-0.5 fill-zinc-300/70 drop-shadow-sm">
+          <path d="M17.014.872l3.448 3.447a2 2 0 0 1 .463 2.103l-1.763 4.812a1 1 0 0 1-.232.363l-8.323 8.323a2 2 0 0 1-2.829 0l-6.364-6.364a2 2 0 0 1 0-2.828l8.333-8.333a1 1 0 0 1 .364-.232L14.913.408a2 2 0 0 1 2.101.464zm-6.009 3.094l-8.177 8.176 6.364 6.364 8.168-8.167 1.687-4.605L15.6 2.286l-4.595 1.68zm2.784 3.58a1.5 1.5 0 1 1 2.12-2.121 1.5 1.5 0 0 1-2.12 2.12z"></path>
+        </svg>
+        <span class="text-cyan-500 drop-shadow-sm">Software</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -5 24 24" width="14" class="fill-zinc-500 drop-shadow-sm" style="transform: translate(0.0625rem, 0.0625rem)">
+          <path d="M5.314 7.071l-4.95-4.95A1 1 0 0 1 1.778.707l5.657 5.657a1 1 0 0 1 0 1.414l-5.657 5.657a1 1 0 0 1-1.414-1.414l4.95-4.95z"></path>
+        </svg>
+        <span class="drop-shadow-sm text-zinc-300">Administration</span>
+      </div>
+
+      <div class="flex flex-row items-stretch justify-between">
+        <!-- Item Metadata -->
+        <div class="grid flex-shrink grid-cols-1 gap-0 pb-2">
+          <a href="<%= path %>" target="_parent" class="flex items-end py-1 pl-3 pr-8 text-xl font-bold opacity-70 hover1 hover3 text-cyan-500 drop-shadow-sm hover:bg-zinc-700/50">
+            <%= item.title %>
+          </a>
+          <a href="<%= path %>" target="_parent" class="flex items-center min-w-full py-1 pl-3 mr-8 text-xs text-zinc-300 hover:bg-zinc-700/50">
+            <p>
+              ⭐⭐⭐⭐⭐
+              <span>(<span class="hover4"><%= item.reviews %></span>)</span>
+            </p>
+          </a>
+          <a href="/author/<%= item.author %>" target="_parent" class="flex items-center py-1 pl-3 pr-8 text-sm cursor-pointer text-zinc-300 hover:bg-zinc-700/50 hover:underline">
+            <%= item.author %>
+          </a>
+          <p class="flex items-center px-2 py-1 text-xs text-zinc-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="16" fill="currentColor" class="mx-0.5">
+              <path d="M12 7A5 5 0 1 0 2 7c0 1.726 1.66 5.031 5 9.653 3.34-4.622 5-7.927 5-9.653zM7 20C2.333 13.91 0 9.577 0 7a7 7 0 1 1 14 0c0 2.577-2.333 6.91-7 13zm0-9a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
+            </svg>
+            <span class="flex-grow">From Country</span>🏳️‍🌈
+          </p>
+          <p class="flex items-center px-2 py-1 text-xs text-zinc-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -4 24 24" width="16" fill="currentColor" class="mx-0.5">
+              <path d="M3 0h14a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3zm10.874 5a4.002 4.002 0 0 1-7.748 0H2V5h16v2h-4.126zm-2.142 0H8.268a2 2 0 0 0 3.464 0z"></path>
+            </svg>
+            <%= item.installs %> installs
+          </p>
+        </div>
+
+        <!-- Item Data -->
+        <% for(const [q, quantity] of Object.entries(item.quantity)) { %>
+        <input type="radio" name="quantity" class="hidden" id="<%= q %><%= i
+          %>" value="<%= q%>" <%= q == 0 ? "checked" : '' %> />
+
+        <style>
+          input[id="<%=q %><%=i %>"]:checked~div label[for="<%=q %><%=i %>"] {
+            color: rgb(212 212 216);
+            background-color: rgb(82 82 91 / 0.2);
+            border-bottom-color: rgb(63 63 70);
+            cursor: default;
+          }
+
+          input[id="<%=q %><%=i %>"]:not(:checked)~div label [for="<%=q %><%=i %>"] {
+            display: none;
+          }
+        </style>
+        <% } %> <% for(const [s, shipping] of Object.entries(item.shipping)) {
+          %> <input type="radio" name="shipping" class="hidden" value="<%= s %>" id="s<%= s
+          %><%=i %>" <%= s == 0 ? "checked" : '' %> />
+        <style>
+          input[id="s<%=s %><%=i %>"]:not(:checked)~div [h-for="s<%=s %><%=i %>"] {
+            display: none;
+          }
+
+          input[id="s<%=s %><%=i %>"]:checked~div [h-xfor="s<%=s %><%=i %>"] {
+            display: none;
+          }
+
+          <% for(const [q, quantity] of Object.entries(item.quantity)) {
+
+            %>input[id="<%=q %><%=i %>"]~input[id="s<%=s %><%=i %>"]:not(:checked)~div [h-qs="<%=q %><%=s %>"],
+            input[id="<%=q %><%=i %>"]:not(:checked)~input[id="s<%=s %><%=i %>"]~div [h-qs="<%=q %><%=s %>"],
+            input[id="<%=q %><%=i %>"]:not(:checked)~input[id="s<%=s %><%=i %>"]:not(:checked)~div [h-qs="<%=q %><%=s %>"] {
+              display: none !important;
+            }
+
+            <%
+          }
+
+          %>
+        </style>
+        <% } %>
+
+        <!-- Item Checkout -->
+        <div class="flex flex-col flex-grow">
+          <!-- Item Quantities -->
+          <div class="flex flex-col flex-shrink text-xs bg-zinc-800 text-zinc-400" a>
+            <!-- <span class="text-center pb-0.5"> Quantity </span> -->
+            <div class="flex flex-row flex-shrink border-b border-b-zinc-700">
+              <% for(const [q, quantity] of Object.entries(item.quantity)) {
+                %>
+              <label type="radio" name="quantity" for="<%= q %><%= i %>" class="flex flex-col cursor-pointer items-center justify-center w-1/3 pt-1 pb-0.5 text-center target:outline-none border-b-4 text-zinc-400 hover:bg-zinc-600/10 border-b-transparent">
+                <span class="font-bold"><%= `${quantity.name} ${item.unit}s` %></span>
+                <span class="text-zinc-400/75"><%= `${unit +
+                    parseFloat(quantity.price /
+                    parseFloat(quantity.name)).toFixed(2) } ea.`
+                    %></span>
+              </label>
+              <% } %>
+            </div>
+          </div>
+
+          <!-- Checkout Tab View -->
+          <div class="flex flex-row flex-grow bg-zinc-700">
+            <!-- Shipping Methods-->
+            <div class="flex flex-col flex-grow py-2 pl-2">
+              <div class="grid flex-shrink grid-flow-col text-xs text-zinc-400">
+                <p>Shipping Method</p>
+              </div>
+
+              <div class="flex-grow my-1 text-xs">
+                <% for(const [s, shipping] of Object.entries(item.shipping)) {
+                  %>
+
+                <label class="flex flex-row items-center px-0.5 text-zinc-400 select-text" for="s<%= s %><%= i %>">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="16" fill="currentColor" class="opacity-30" h-xfor="s<%= s %><%= i %>">
+                    <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10z"></path>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="16" fill="currentColor" class="opacity-80" h-for="s<%= s %><%= i %>">
+                    <path d="M10 20.565c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10z"></path>
+                  </svg>
+
+                  <span class="flex-grow mx-0.5 text-zinc-300"><%= shipping.name %></span>
+
+                  <span class="flex-shrink mx-0.5 text-right">
+                    +<%= shipping.price %>
+                  </span>
+                </label>
+
+                <% } %>
+              </div>
+
+              <div class="flex-shrink mt-1 text-xs select-text">
+                <span class="underline text-zinc-400 decoration-dotted cursor-help">Estimated Arrival</span><span class="mr-1 text-zinc-400">:</span><span class="text-zinc-300">3-5 days</span>
+              </div>
+              <p class="flex-shrink text-xs select-text text-zinc-400">
+                Only ships to North America, South America, and Europe
+              </p>
+            </div>
+
+            <div class="flex flex-col items-center justify-center flex-shrink m-2 mx-3">
+              <label for="checkout" class="cursor-pointer flex flex-col min-w-full items-center gap-0.5 px-6 py-2 bg-green-600 border rounded-md border-green-700/90 drop-shadow-sm h-fit text-zinc-50">
+                <% for(const [q, quantity] of Object.entries(item.quantity)) {
+                  %>
+
+                <span class="font-bold leading-4 text-zinc-300 " for="<%= q %><%= i %>">Buy <%= quantity.name %> <%= item.unit ? item.unit + "s" : "" %></span>
+                <% for(const [s, shipping] of Object.entries(item.shipping ??
+                  q)) { %>
+                <span class="font-semibold leading-4 text-zinc-300/75" h-qs="<%= q %><%= s %>"><%= unit %><%= (parseFloat(quantity.price) +
+                    parseFloat(shipping.price)).toFixed(2) %></span>
+                <% } %> <% } %>
+              </label>
+
+              <% for(const [q, quantity] of Object.entries(item.quantity)) {
+                %> <% for(const [s, shipping] of Object.entries(item.shipping ??
+                q)) { %>
+              <span class="text-xs select-text text-zinc-400/80" h-qs="<%= q %><%= s %>"><b>Total:</b> <%= (parseFloat(quantity.price) * 0.02415 +
+                  parseFloat(shipping.price) * .0021006).toFixed(8) %> USD</span>
+              <% } %> <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

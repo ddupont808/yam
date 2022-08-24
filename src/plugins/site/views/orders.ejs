@@ -1,0 +1,166 @@
+<div class="flex flex-col w-full h-full max-w-6xl mx-auto my-4 select-none">
+  <% for(const [i, item] of Object.entries(items)) { %>
+
+  <form>
+    <div class="flex flex-row my-4">
+      <div class="flex flex-col flex-grow border rounded-md h-fit drop-shadow-sm border-zinc-700 bg-zinc-800">
+        <div class="flex flex-col p-2 border-b border-b-1 border-b-zinc-700">
+          <span class="text-zinc-500">Purchased from <a href="<%=`/user/${item.author}`%>" class="underline text-zinc-400"><%= item.author %></a> on 21 Feb, 2021</span>
+        </div>
+        <div class="flex flex-row px-4">
+          <a href="#" target="_parent" class="flex flex-col flex-shrink m-4 bg-center bg-contain border rounded-sm drop-shadow-md border-zinc-600 w-28 h-28" style="background-image: url(<%= item.image %>);">
+          </a>
+          <div class="flex flex-col flex-grow px-4 py-5">
+            <a href="<%=`/order/${encodeURIComponent(item.key)}`%>" class="flex flex-row flex-grow hover:underline text-zinc-400">
+              <h2 class="text-xl font-semibold">Custom lenticular photo ( 3D flip photocard )</h2>
+            </a>
+            <div class="flex flex-row mt-2 ">
+              <button type="submit" class="items-center flex-shrink px-3 py-2 border rounded-md bg-zinc-600 border-zinc-700/90 drop-shadow-sm h-fit ">
+                <span class="font-bold text-zinc-300">Buy this again</span>
+              </button>
+              <span class="self-center mx-3 font-semibold text-zinc-500"><%= unit %><%= item.quantity[0].price %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col flex-shrink mx-4">
+        <div class="flex flex-col">
+          <h2 class="text-xl font-semibold text-zinc-400">Processing Order</h2>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-semibold text-zinc-500">From NEW YORK, NY</span>
+        </div>
+        <div class="flex flex-col my-2">
+          <span class="text-zinc-500">Estimated delivery: <span class="underline decoration-dotted">1 Jan.-03 Feb.<span></span>
+        </div>
+        <div class="flex flex-col my-1">
+          <button type="submit" class="items-center flex-shrink px-2 py-1 text-sm border rounded-md bg-zinc-600 border-zinc-700/90 drop-shadow-sm h-fit ">
+            <span class="font-bold text-zinc-300 ">Cancel Order</span>
+          </button>
+        </div>
+        <div class="flex flex-col my-1">
+          <a href="<%=`/order/${encodeURIComponent(item.key)}`%>" class="items-center flex-shrink px-2 py-1 text-sm text-center border rounded-md border-zinc-700/90 drop-shadow-sm h-fit ">
+            <span class="font-bold text-zinc-300 ">View Receipt</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+  <form>
+    <div class="flex flex-row my-4">
+      <div class="flex flex-col flex-grow border rounded-md h-fit drop-shadow-sm border-zinc-700 bg-zinc-800">
+        <div class="flex flex-col p-2 border-b border-b-1 border-b-zinc-700">
+          <span class="text-zinc-500">Purchased from <a href="<%=`/user/${item.author}`%>" class="underline text-zinc-400"><%= item.author %></a> on 21 Feb, 2021</span>
+        </div>
+        <div class="flex flex-row px-4">
+          <a href="#" target="_parent" class="flex flex-col flex-shrink m-4 bg-center bg-contain border rounded-sm drop-shadow-md border-zinc-600 w-28 h-28" style="background-image: url(<%= item.image %>);">
+          </a>
+          <div class="flex flex-col flex-grow px-4 py-5">
+            <a href="<%=`/order/${encodeURIComponent(item.key)}`%>" class="flex flex-row flex-grow hover:underline text-zinc-400">
+              <h2 class="text-xl font-semibold">Custom lenticular photo ( 3D flip photocard )</h2>
+            </a>
+            <div class="flex flex-row mt-2 ">
+              <button type="submit" class="items-center flex-shrink px-3 py-2 border rounded-md bg-zinc-600 border-zinc-700/90 drop-shadow-sm h-fit ">
+                <span class="font-bold text-zinc-300">Buy this again</span>
+              </button>
+              <span class="self-center mx-3 font-semibold text-zinc-500"><%= unit %><%= item.quantity[0].price %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col flex-shrink mx-4">
+        <div class="flex flex-col">
+          <h2 class="text-xl font-semibold text-zinc-400">Out for delivery</h2>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-zinc-500">On 21 Feb, 2021</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-semibold text-zinc-500">From NEW YORK, NY</span>
+        </div>
+        <div class="flex flex-col my-2">
+          <span class="text-zinc-500">Estimated delivery: <span class="underline decoration-dotted">1 Jan.-03 Feb.<span></span>
+        </div>
+        <div class="flex flex-col my-1">
+          <button type="submit" class="items-center flex-shrink px-2 py-1 text-sm border rounded-md bg-zinc-600 border-zinc-700/90 drop-shadow-sm h-fit ">
+            <span class="font-bold text-zinc-300 ">Finalize Early</span>
+          </button>
+        </div>
+        <div class="flex flex-col my-1">
+          <button type="submit" class="items-center flex-shrink px-2 py-1 text-sm border rounded-md border-zinc-700/90 drop-shadow-sm h-fit ">
+            <span class="font-bold text-zinc-300 ">Help with Order</span>
+          </button>
+        </div>
+        <div class="flex flex-col my-1">
+          <button type="submit" class="items-center flex-shrink px-2 py-1 text-sm border rounded-md border-zinc-700/90 drop-shadow-sm h-fit ">
+            <span class="font-bold text-zinc-300 ">Extend Finalize Timer</span>
+          </button>
+        </div>
+        <div class="flex flex-col my-1">
+          <button type="submit" class="items-center flex-shrink px-2 py-1 text-sm border rounded-md border-zinc-700/90 drop-shadow-sm h-fit ">
+            <span class="font-bold text-zinc-300 ">View Receipt</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+  <form>
+    <div class="flex flex-row my-4">
+      <div class="flex flex-col flex-grow border rounded-md h-fit drop-shadow-sm border-zinc-700 bg-zinc-800">
+        <div class="flex flex-col p-2 border-b border-b-1 border-b-zinc-700">
+          <span class="text-zinc-500">Purchased from <a href="<%=`/user/${item.author}`%>" class="underline text-zinc-400"><%= item.author %></a> on 21 Feb, 2021</span>
+        </div>
+        <div class="flex flex-row px-4">
+          <a href="#" target="_parent" class="flex flex-col flex-shrink m-4 bg-center bg-contain border rounded-sm drop-shadow-md border-zinc-600 w-28 h-28" style="background-image: url(<%= item.image %>);">
+          </a>
+          <div class="flex flex-col flex-grow px-4 py-5">
+            <a href="<%=`/order/${encodeURIComponent(item.key)}`%>" class="flex flex-row flex-grow hover:underline text-zinc-400">
+              <h2 class="text-xl font-semibold">Custom lenticular photo ( 3D flip photocard )</h2>
+            </a>
+            <div class="flex flex-row mt-2 ">
+              <button type="submit" class="items-center flex-shrink px-3 py-2 border rounded-md bg-zinc-600 border-zinc-700/90 drop-shadow-sm h-fit ">
+                <span class="font-bold text-zinc-300">Buy this again</span>
+              </button>
+              <span class="self-center mx-3 font-semibold text-zinc-500"><%= unit %><%= item.quantity[0].price %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col flex-shrink mx-4">
+        <div class="flex flex-col">
+          <h2 class="text-xl font-semibold text-zinc-400">Delivered</h2>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-zinc-500">On 21 Feb, 2021</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-semibold text-zinc-500">From NEW YORK, NY</span>
+        </div>
+        <div class="flex flex-col my-2">
+          <span class="text-zinc-500">Estimated delivery: <span class="underline decoration-dotted">1 Jan.-03 Feb.<span></span>
+        </div>
+        <div class="flex flex-col my-1">
+          <button type="submit" class="items-center flex-shrink px-2 py-1 text-sm border rounded-md bg-zinc-600 border-zinc-700/90 drop-shadow-sm h-fit ">
+            <span class="font-bold text-zinc-300 ">Leave Review</span>
+          </button>
+        </div>
+        <div class="flex flex-col my-1">
+          <button type="submit" class="items-center flex-shrink px-2 py-1 text-sm border rounded-md border-zinc-700/90 drop-shadow-sm h-fit ">
+            <span class="font-bold text-zinc-300 ">Help with Order</span>
+          </button>
+        </div>
+        <div class="flex flex-col my-1">
+          <button type="submit" class="items-center flex-shrink px-2 py-1 text-sm border rounded-md border-zinc-700/90 drop-shadow-sm h-fit ">
+            <span class="font-bold text-zinc-300 ">View Receipt</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <% } %>
+</div>

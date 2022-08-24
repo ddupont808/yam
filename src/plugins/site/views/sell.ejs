@@ -1,0 +1,292 @@
+<div class="flex flex-col flex-grow before:flex before:flex-grow before:h-12 before:max-h-52 after:flex after:flex-grow">
+  <!-- <div class="mx-auto text-center">
+    <h1 class="my-2 text-2xl font-normal text-zinc-300">yam</h1> -->
+
+  <h1 class="mb-4 text-2xl text-center text-zinc-300">submit to yam</h1>
+
+  <% for(const page of [0, 1, 2, 3, 4]) { %>
+  <div id="<%=page %>"></div>
+  <style>
+    [id="<%=page %>"]:not(:target)~* [page="<%=page %>"] {
+      display: none;
+    }
+
+    [id="<%=page %>"]:not(:target)~* span[step="<%=page %>"] {
+      color: inherit;
+      font-weight: inherit;
+    }
+
+    :target~[id="<%= page %>"]~* span[step="<%=page %>"] {
+      opacity: 0.75;
+    }
+
+    :target~[id="<%= page %>"]~* div[step="<%=page %>"] {
+      background-color: rgb(39 39 42);
+    }
+
+    [id="<%=page %>"]:target~.progress::after {
+      width: calc(<%=((page)/4)*100 %>%);
+    }
+
+    input[type="file"] {
+      text-align-last: center;
+    }
+
+    input[type="file"]::file-selector-button {
+      display: none;
+    }
+  </style>
+  <% } %>
+
+  <div class="relative flex flex-row justify-between gap-12 mx-auto mb-12 text-zinc-400/50 w-fit before:absolute before:-translate-y-1 before:top-1/2 before:h-2 before:bg-zinc-800 before:left-2 before:right-2 after:absolute after:-translate-y-1 after:top-1/2 after:h-2 after:bg-emerald-900 after:rounded-r after:left-0 after:w-0 progress">
+    <div class="relative z-10 w-10 h-10 p-2 rounded-full bg-emerald-900" step="0">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -2 24 24" width="24" fill="currentColor">
+        <path d="M5 2v2h4V2H5zm6 0h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2zm0 2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2H2v14h10V4h-1zM4 8h6a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 5h6a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+      </svg>
+      <span class="absolute font-bold text-center -left-4 -right-4 top-full text-emerald-700" step="0">item</span>
+    </div>
+    <div class="relative z-10 w-10 h-10 p-2 rounded-full bg-emerald-900" step="1">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 24 24" width="24" fill="currentColor">
+        <path d="M11.586 15.071L13 13.657l1.414 1.414 6.165-6.165 1.09-3.552-2.484-2.483-1.079.336-1.598-1.598L18.591.96a2 2 0 0 1 2.008.496l2.483 2.483a2 2 0 0 1 .498 2L22.345 9.97l-7.93 7.93-2.83-2.828zM14.236.75l2.482 2.483a2 2 0 0 1 .498 2l-1.235 4.028-7.93 7.931-7.78-7.778L8.17 1.516 12.227.254a2 2 0 0 1 2.008.496zM3.1 9.414l4.95 4.95 6.164-6.165 1.09-3.552-2.484-2.483-3.585 1.115L3.1 9.414zm7.424-2.475a1.5 1.5 0 1 1 2.121-2.121 1.5 1.5 0 0 1-2.12 2.121zm6.886 1.022l.782-2.878c.45.152.755.325.917.518a1.5 1.5 0 0 1-.185 2.113c-.29.244-.795.326-1.514.247z"></path>
+      </svg>
+      <span class="absolute font-bold text-center -left-4 -right-4 top-full text-emerald-700" step="1">prices</span>
+    </div>
+    <div class="relative z-10 w-10 h-10 p-2 rounded-full bg-emerald-900" step="2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1.5 -1.5 24 24" width="24" fill="currentColor">
+        <path d="M10.725 9.094l-5.509 5.51-1.87-.777-.167.169 2.38 1.587 1.588 2.38.168-.168-.776-1.87 5.509-5.508 4.328 6.252.21-.208-2.887-7.696 4.4-4.398a.935.935 0 0 0-1.323-1.323l-4.4 4.399-7.694-2.886-.21.209 6.253 4.328zm5.39 10.483l-4.33-6.253-3.04 3.04.777 1.87-2.666 2.665-2.645-3.967-3.968-2.646 2.666-2.666 1.869.776 3.04-3.04-6.253-4.328 2.646-2.645 7.695 2.885 3.547-3.547a2.806 2.806 0 1 1 3.968 3.968l-3.547 3.547 2.886 7.696-2.646 2.645z"></path>
+      </svg>
+      <span class="absolute font-bold text-center -left-4 -right-4 top-full text-emerald-700" step="2">delivery</span>
+    </div>
+    <div class="relative z-10 w-10 h-10 p-2 rounded-full bg-emerald-900" step="3">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -4 24 24" width="24" fill="currentColor">
+        <path d="M5.676 5H4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1.676l-.387-1.501A2.002 2.002 0 0 0 12 2H8a2 2 0 0 0-1.937 1.499L5.676 5zm-1.55-2C4.57 1.275 6.136 0 8 0h4a4.002 4.002 0 0 1 3.874 3H16a4 4 0 0 1 4 4v5a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4h.126zM10 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6-3a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
+      </svg>
+      <span class="absolute font-bold text-center -left-4 -right-4 top-full text-emerald-700" step="3">media</span>
+    </div>
+    <div class="relative z-10 w-10 h-10 p-2 rounded-full bg-emerald-900" step="4">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="24" fill="currentColor">
+        <path d="M6 2H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2zM3.01 8v9.965H5V13a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4.965h6.013V8H15c-.768 0-1.47-.289-2-.764A2.989 2.989 0 0 1 11 8H9c-.768 0-1.47-.289-2-.764A2.989 2.989 0 0 1 5 8H3.01zm-2-.754A2.993 2.993 0 0 1 0 5V3a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v2c0 .882-.38 1.676-.987 2.225v10.74a2 2 0 0 1-2 2h-7.64A2.01 2.01 0 0 1 9 20H7a2.01 2.01 0 0 1-.373-.035H3.011a2 2 0 0 1-2-2V7.245zM9 17.966V13H7v4.965h2zM12 2H8v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2zm2 0v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-3zm0 9h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1z"></path>
+      </svg>
+      <span class="absolute font-bold text-center -left-4 -right-4 top-full text-emerald-700" step="4">submit</span>
+    </div>
+  </div>
+
+  <div class="p-8 mx-auto text-center border rounded shadow w-96 border-zinc-800 drop-shadow">
+    <form class="flex flex-col text-center" method="post">
+
+      <!-- Info -->
+      <div class="flex flex-col content-center gap-2 text-center" page="0">
+        <div class="flex flex-col gap-4 text-left">
+          <label>
+            <span class="mb-2 font-semibold text-zinc-500">title</span>
+            <input class="w-full p-2 border rounded outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="text" placeholder="" autocomplete="off" name="title" required />
+          </label>
+
+          <label>
+            <span class="mb-2 font-semibold text-zinc-500">description</span>
+            <textarea autocomplete="off" class="w-full p-2 border rounded-sm outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" placeholder="" name="desc" required></textarea>
+          </label>
+
+          <label>
+            <span class="mb-2 font-semibold text-zinc-500">payment methods</span>
+            <select multiple class="w-full p-2 overflow-auto border rounded outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="text" placeholder="unit" autocomplete="off" name="payment[]" required>
+              <option>XMR</option>
+              <option>BTC</option>
+            </select>
+            <p class="self-center w-full mt-2 text-center text-zinc-600">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="18" fill="currentColor" class="inline pr-1">
+                <path d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0-13a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V6a1 1 0 0 1 1-1zm0 10a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"></path>
+              </svg>any swap fees are prepaid for by the buyer
+            </p>
+          </label>
+        </div>
+
+        <!-- <input class="w-full p-2 border rounded-sm outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="password" placeholder="Password" autocomplete="off" name="pass" required />
+        <input class="w-full p-2 border rounded-sm outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="password" placeholder="Confirm Password" name="pass_conf" required /> -->
+
+
+        <div class="flex flex-col gap-4 text-left">
+          <label>
+            <span class="mb-2 font-semibold text-zinc-500">category</span>
+            <select class="w-full p-2 border rounded outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="text" placeholder="unit" autocomplete="off" name="category" required>
+              <option>cards (1024)</option>
+              <option>rpgs (583)</option>
+              <option>hentai (16)</option>
+              <option>anime (5)</option>
+            </select>
+            <p class="self-center w-full mt-2 text-center underline text-emerald-700">
+              more categories
+            </p>
+          </label>
+        </div>
+
+        <a href="#1" class="px-5 py-2 mt-3 text-center rounded-sm text-zinc-200 bg-zinc-700">
+          continue
+        </a>
+      </div>
+
+      <!-- Pricing -->
+      <div class="flex flex-col content-center gap-2" page="1">
+        <div class="flex flex-col gap-4 text-left">
+          <label>
+            <span class="mb-2 font-semibold text-zinc-500">unit</span>
+            <select class="w-full p-2 border rounded outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="text" placeholder="unit" autocomplete="off" name="unit" required>
+              <option>item</option>
+              <optgroup label="Weight">
+                <option>microgram (μg)</option>
+                <option>milligram (mg)</option>
+                <option>gram (g)</option>
+                <option>kilogram (kg)</option>
+                <option>pound (lb)</option>
+                <option>ounce (oz)</option>
+              </optgroup>
+              <optgroup label="Volume">
+                <option>milliliter (mL)</option>
+                <option>liter (L)</option>
+              </optgroup>
+            </select>
+          </label>
+          <label>
+            <span class="mb-2 font-semibold text-zinc-500">currency</span>
+            <select class="w-full p-2 border rounded outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="text" placeholder="usd" autocomplete="off" name="currency" required>
+              <option>usd</option>
+            </select>
+            <p class="w-full mB-2 text-zinc-600">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16" fill="currentColor" class="inline pr-0.5">
+                <path d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0-13a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V6a1 1 0 0 1 1-1zm0 10a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"></path>
+              </svg>used to calculate the total value you receive per purchase
+            </p>
+          </label>
+
+          <span class="font-semibold text-zinc-500">price table</span>
+
+          <div class="flex w-full gap-2 p-2 text-center border rounded shadow border-zinc-800 drop-shadow">
+            <label>
+              <span class="mb-2 font-semibold text-zinc-500">quantity</span>
+              <input class="w-full p-2 border rounded outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="number" placeholder="100 μg" autocomplete="off" name="quantity[]" required />
+            </label>
+            <label>
+              <span class="mb-2 font-semibold text-zinc-500">total price</span>
+              <input class="w-full p-2 border rounded outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="number" placeholder="5.00 usd" step="0.00000001" autocomplete="off" name="total[]" required />
+            </label>
+          </div>
+
+          <span class="self-center w-full text-center underline text-emerald-700">
+            Add bulk pricing option
+          </span>
+
+          <label>
+            <span class="mb-2 font-semibold text-zinc-500">units in stock</span>
+            <input class="w-full p-2 border rounded outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="number" placeholder="unlimited" autocomplete="off" name="stock" />
+          </label>
+        </div>
+
+        <a href="#2" class="px-5 py-2 mt-3 text-center rounded-sm text-zinc-200 bg-zinc-700">
+          continue
+        </a>
+
+        <a href="#0" class="px-5 py-2 text-center border rounded-sm text-zinc-200 border-zinc-700">
+          back
+        </a>
+      </div>
+
+      <!-- Shipping -->
+      <div class="flex flex-col content-center gap-2" page="2">
+        <div class="flex flex-col gap-4 text-left">
+          <span class="font-semibold text-zinc-500">Shipping</span>
+
+          <div class="flex w-full gap-2 p-2 text-center border rounded shadow border-zinc-800 drop-shadow">
+            <label>
+              <span class="mb-2 font-semibold text-zinc-500">Shipping Method</span>
+              <input class="w-full p-2 border rounded outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="text" placeholder="Domestic Snail Mail" autocomplete="off" name="title" required />
+            </label>
+            <label>
+              <span class="mb-2 font-semibold text-zinc-500">Cost</span>
+              <input class="w-full p-2 border rounded outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="text" placeholder="5.00" step="0.00000001" autocomplete="off" name="title" required />
+            </label>
+          </div>
+
+          <span class="self-center w-full text-center underline text-emerald-700">
+            Add shipping method
+          </span>
+
+          <label>
+            <span class="mb-2 font-semibold text-zinc-500">Origin Country</span>
+            <select class="w-full p-2 border rounded outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="text" placeholder="unit" autocomplete="off" name="title">
+              <option>Worldwide</option>
+            </select>
+          </label>
+
+          <label>
+            <span class="mb-2 font-semibold text-zinc-500">Destination Countries</span>
+            <select class="w-full p-2 border rounded outline-none text-zinc-100 bg-zinc-900 focus:border-zinc-700 border-zinc-800" type="text" placeholder="unit" autocomplete="off" name="title" required>
+              <option>Worldwide</option>
+            </select>
+          </label>
+        </div>
+
+        <a href="#3" class="px-5 py-2 mt-3 text-center rounded-sm text-zinc-200 bg-zinc-700">
+          continue
+        </a>
+
+        <a href="#1" class="px-5 py-2 text-center border rounded-sm text-zinc-200 border-zinc-700">
+          back
+        </a>
+      </div>
+
+
+      <!-- Images -->
+      <div class="flex flex-col content-center gap-2" page="3">
+        <div class="flex items-center justify-center w-full">
+          <label class="flex flex-col items-center justify-center w-full h-48 border-4 border-dashed rounded cursor-pointer border-zinc-800">
+            <svg class="w-10 h-10 mb-3 text-gray-400 " fill=" none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+            </svg>
+            <p class="mb-2 text-sm text-gray-500 "><span class="font-semibold">Click to upload</span>
+              <!-- or drag and drop -->
+            </p>
+            <p class="text-xs text-gray-500 ">PNG, JPG or GIF (MAX. 5MB)</p>
+            <input type="file" id="img[]"" name=" img[]" class="my-2 font-semibold text-gray-500" accept="image/jpeg, image/png, image/gif" multiple />
+          </label>
+        </div>
+
+
+        <a href="#4" class="px-5 py-2 mt-3 text-center rounded-sm text-zinc-200 bg-zinc-700">
+          continue
+        </a>
+
+        <a href="#2" class="px-5 py-2 text-center border rounded-sm text-zinc-200 border-zinc-700">
+          back
+        </a>
+      </div>
+
+      <!-- Publish -->
+      <div class="flex flex-col content-center gap-2" page="4">
+
+        <div class="flex flex-col items-center justify-center w-full gap-2 p-2 text-center border rounded shadow border-zinc-800 drop-shadow">
+          <div class="flex justify-center w-full p-2 -mx-2 font-bold border-b text-zinc-700 border-zinc-800">XMR Address</div>
+          <div class="flex w-48 h-48 bg-black"></div>
+          <h1 class="text-2xl font-semibold text-zinc-600">$15.00</h1>
+          <p class="w-full mB-2 text-zinc-600">
+            send <span class="font-bold text-zinc-700">0.15<span class="ml-1 font-semibold text-zinc-700">xmr</span></span> to <span class="px-1 border bg-zinc-900 border-zinc-800">c4f1f529ade94cf137b762c6514f1ec8</span> to publish your listing
+          </p>
+        </div>
+
+
+        <a href="#3" class="px-5 py-2 mt-3 text-center border rounded-sm opacity-20 text-emerald-300 border-emerald-700">
+          publish
+        </a>
+
+        <!-- <a href="#3" class="px-5 py-2 mt-3 text-center rounded-sm text-zinc-200 bg-emerald-700">
+          Publish
+        </a> -->
+
+        <a href="#3" class="px-5 py-2 text-center border rounded-sm text-zinc-200 border-zinc-700">
+          back
+        </a>
+      </div>
+
+    </form>
+  </div>
+  <!-- </div> -->
+</div>

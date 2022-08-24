@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/ddupont808/yam"><img src="https://i.imgur.com/45gxDMm.png" alt="Logo" width="370"></a>
+  <a href="https://github.com/ddupont808/yam"><img src="https://raw.githubusercontent.com/ddupont808/yam/main/src/assets/yam_logo.png" alt="Logo" width="370"></a>
   <br>
   <span>yam</span>
   <br>
@@ -173,6 +173,8 @@ stack.web.listen(8080, (err: Error | null, address: string) => {
 Due to the autonomous and decentralized nature of a gossip network, mechanisms must be put in place to prove if activity is valid. This important task is currently enforced via "proof-of-burn", an efficient consensus-mechanism with minimal energy waste (see [Security](#security)).
 
 Proof systems ensure the `yam` experience stays stable and enjoyable, while also protecting you from bot spam creating listings or leaving product reviews.
+
+![](https://raw.githubusercontent.com/ddupont808/yam/main/src/assets/screenshot.png)
 
 # Concepts
 

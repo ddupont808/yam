@@ -1,10 +1,10 @@
 <h1 align="center">
-  <br>
   <a href="https://github.com/ddupont808/yam"><img src="https://i.imgur.com/45gxDMm.png" alt="Logo" width="370"></a>
   <br>
-  <span style="font-weight: 300; font-size: 1.5em">yam</span>
+  <span>yam</span>
   <br>
-  <small style="opacity: 0.75;">yet another market</small>
+  <br>
+  <small>yet another market</small>
 </h1>
 
 <h4 align="center">a global, decentralized, and distributed e-commerce platform (built upon <a href="https://scuttlebutt.nz/">Secure Scuttlebutt</a>, <a href="https://www.getmonero.org/">Monero</a>, and <a href="https://www.torproject.org/">Tor</a>).</h4>
@@ -38,10 +38,10 @@ Welcome! `yam` is a project that aims to create a secure and decentralized marke
 
 `yam` can be used by developers as a [nodejs](#WIP) module, a [command line utility](#WIP), or via a [RPC](#api) interface.
 
-<center>
+<p align="center">
 <br />
 <a href="#roadmap">💜 If you want to support this project, please consider donating or volunteering bandwidth 💜</a>
-</center>
+</p>
 <br/>
 
 ---
@@ -288,13 +288,9 @@ The `yam` project does not use an existing peer-to-peer network, meaning it reli
 
 Running a `yam` node does not require running an instance of `monerod`, but if you can also spare the hard drive space, the network would be able to perform proof-of-burn checks much faster if ran people were to run full `monerod` nodes alongside `yam`.
 
-<center>
 💜 Another way to support this project is to consider donating 💜
-
 `monero:87She2WxtcKYqFcuwzqd8QdpVz45myWVHTwe68Uz7agvcGYNNHdafcGHCsUzXQy6n3aaku1T4eamN3TdYyGvmqtZRnyDsrc`
 `bitcoin:3JVzbGzSNk4ArkjYV5wU6RtCbKWKuH8EoR`
-
-</center>
 
 # Roadmap
 

@@ -15,47 +15,52 @@ class xmr {
 
   constructor(api: Stack, opts: any) {
     (async () => {
-      console.log(api);
       api.logger.info("Establishing connection to monero-wallet-rpc");
 
       /** https://github.com/monero-ecosystem/monero-javascript#sample-code */
 
-      this.walletRpc = await monerojs.connectToWalletRpc(
-        process.env.XMR_WALLET_RPC || "http://localhost:28088"
-      );
+      // const monerodPort = process.env.MONEROD_PORT || "38081";
+
+      const moneroWalletAddress =
+        process.env.MONERO_WALLET_RPC_ADDRESS ||
+        `http://${process.env.MONERO_WALLET_RPC_HOST || "localhost"}:${
+          process.env.MONERO_WALLET_RPC_PORT || "28088"
+        }`;
+
+      this.walletRpc = await monerojs.connectToWalletRpc(moneroWalletAddress);
 
       if (!(await this.walletRpc.isClosed())) await this.walletRpc.close();
 
-      api.logger.info("Opening wallet");
+      // api.logger.info("Opening wallet");
 
-      await this.walletRpc.openWallet(
-        "sample_stagenet_wallet_rpc",
-        "supersecretpassword123"
-      );
+      // await this.walletRpc.openWallet(
+      //   "sample_stagenet_wallet_rpc",
+      //   "supersecretpassword123"
+      // );
 
-      api.logger.info("Fetching address...");
-      let address = await this.walletRpc.getPrimaryAddress(); // 555zgduFhmKd2o8rPUz...
-      api.logger.info("Fetching balance...");
-      let balance = await this.walletRpc.getBalance(); // 533648366742
-      api.logger.info("Fetching txs...");
-      let txs = await this.walletRpc.getTxs(); // get transactions containing transfers to/from the wallet
+      // api.logger.info("Fetching address...");
+      // let address = await this.walletRpc.getPrimaryAddress(); // 555zgduFhmKd2o8rPUz...
+      // api.logger.info("Fetching balance...");
+      // let balance = await this.walletRpc.getBalance(); // 533648366742
+      // api.logger.info("Fetching txs...");
+      // let txs = await this.walletRpc.getTxs(); // get transactions containing transfers to/from the wallet
 
-      api.logger.info(`fee address = ${address}, balance = ${balance}`);
-      api.logger.info(txs);
+      // api.logger.info(`fee address = ${address}, balance = ${balance}`);
+      // api.logger.info(txs);
 
-      api.logger.info("wallet opened...");
+      // api.logger.info("wallet opened...");
 
-      const ex =
-        "5Hg1irtxEi7KiJsASfx15NRSEizy4KjAVKgaSAZx4obd7US3R4FFtin16taVGMLvGtRXTygJY7EsMKULqneBDaF9RQvUb3GHFybHmXZx7A";
-      api.logger.info(
-        (await this.walletRpc.decodeIntegratedAddress(ex)).toJson()
-      );
+      // const ex =
+      //   "5Hg1irtxEi7KiJsASfx15NRSEizy4KjAVKgaSAZx4obd7US3R4FFtin16taVGMLvGtRXTygJY7EsMKULqneBDaF9RQvUb3GHFybHmXZx7A";
+      // api.logger.info(
+      //   (await this.walletRpc.decodeIntegratedAddress(ex)).toJson()
+      // );
 
-      const integratedAddress = await this.walletRpc.getIntegratedAddress(
-        burnerAddress
-      );
+      // const integratedAddress = await this.walletRpc.getIntegratedAddress(
+      //   burnerAddress
+      // );
 
-      api.logger.info(integratedAddress.toJson());
+      // api.logger.info(integratedAddress.toJson());
     })();
   }
 

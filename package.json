@@ -7,12 +7,11 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "ts-node index.ts",
-    "dev": "YAM_HTTP_PORT=8000 YAM_LOGGER_LEVEL=trace ts-node-dev --respawn --transpile-only --exit-child --watch src,package.json --ignore-watch src/assets index.ts | pino-pretty -i hostname,pid -t HH:MM:ss.l -c",
-    "setup:monerod": "ts-node utils/scripts/fetch-xmr | pino-pretty",
+    "dev": "ts-node-dev -r dotenv/config --respawn --transpile-only --exit-child --watch src,package.json --ignore-watch src/assets index.ts | pino-pretty -i hostname,pid -t HH:MM:ss.l -c",
     "docs": "docsify serve docs -o",
     "serve:docs": "docsify serve docs",
-    "monerod": "./src/assets/monero/monero-x86_64-w64-mingw32-v0.18.1.0/monerod.exe --stagenet --rpc-bind-port 38081 --confirm-external-bind --allow-local-ip",
-    "monero-rpc": "./src/assets/monero/monero-x86_64-w64-mingw32-v0.18.1.0/monero-wallet-rpc.exe --stagenet --rpc-bind-port 28088 --wallet-dir 'C:/Users/shmuk/Documents/Monero/wallets' --disable-rpc-login --trusted-daemon --daemon-address http://127.0.0.1:38081"
+    "setup:monero": "ts-node utils/scripts/fetch-xmr | pino-pretty",
+    "spawn:monero": "ts-node -r dotenv/config utils/scripts/start-xmr"
   },
   "dependencies": {
     "@fastify/cookie": "^7.0.0",
@@ -27,6 +26,7 @@
     "@tangle/simple-set": "^3.0.0",
     "@types/yargs": "^17.0.11",
     "async-append-only-log": "^4.3.6",
+    "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "electron": "^20.0.3",
     "fastify": "^4.1.0",

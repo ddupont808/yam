@@ -10,7 +10,8 @@ src/assets/tor/*
 src/assets/monero/*
 src/assets/bitcoin/*
 
-.env
+# .env
+.env.local
 
 node_modules
 # .vscode

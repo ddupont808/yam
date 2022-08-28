@@ -14,22 +14,22 @@ class logger {
   }
 
   @local()
-  fatal = (...args: any[]) => this.logger.fatal.call(this.logger, args);
+  fatal = (...args: any[]) => this.logger.fatal(...args);
 
   @local()
-  error = (...args: any[]) => this.logger.error.call(this.logger, args);
+  error = (...args: any[]) => this.logger.error(...args);
 
   @local()
-  warn = (...args: any[]) => this.logger.warn.call(this.logger, args);
+  warn = (...args: any[]) => this.logger.warn(...args);
 
   @local()
-  debug = (...args: any[]) => this.logger.debug.call(this.logger, args);
+  debug = (...args: any[]) => this.logger.debug(...args);
 
   @local()
-  trace = (...args: any[]) => this.logger.trace.call(this.logger, args);
+  trace = (...args: any[]) => this.logger.trace(...args);
 
   @local()
-  info = (...args: any[]) => this.logger.info.call(this.logger, args);
+  info = (...args: any[]) => this.logger.info(...args);
 }
 
 module.exports = logger;

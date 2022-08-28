@@ -81,8 +81,8 @@ Alternatively, we also provide a few websites and onion services that use the la
 $ git clone https://github.com/ddupont808/yam
 $ cd yam
 
-# Download and verify the latest monerod binaries
-$ npm run setup:monerod
+# Download and verify the latest monero cli binaries
+$ npm run setup:monero
 
 # Install the project dependencies
 $ npm install
@@ -91,8 +91,7 @@ $ npm install
 To start `yam` in development mode, run the following:
 ```BASH
 # Start the monero daemon, only if it is not already running.
-$ npm run monerod
-$ npm run monero-rpc
+$ npm run spawn:monero
 
 # Serve the web server in development mode at http://localhost:8000.
 $ npm run dev

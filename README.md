@@ -155,11 +155,11 @@ To participate in the network, you first need an identity.
 Scuttlebutt uses feeds as the main method of storing data.
 
  - Each peer holds its own local feed, storing the messages it has written in an append-only, linked list.
- - Peers also hold feeds of peers that they care about, enabling the propogation of messages beyond your local feed.
+ - Peers also hold feeds of peers that they care about, enabling the propagation of messages beyond your local feed.
  - When you submit a message through the client, it is stored in at the end of your local feed.
  - Each message in a feed is digitally signed and includes a link to the previous message in the feed.
 
-This setup allows you to easily verify a message's authenticity, and makes asking for feed upates easy (e.g. "can I have any messages after message 4 for @Joe's Feed").
+This setup allows you to easily verify a message's authenticity, and makes asking for feed updates easy (e.g. "can I have any messages after message 4 for @Joe's Feed").
 
 ## Replication
 
@@ -188,7 +188,7 @@ Since `yam` is designed with privacy and performance in mind, there are few mess
 
 `yam` wouldn't be a global e-commerce platform without anyone being able to synchronize with the same "main database" of all the products. This is where a communication protocol known as "gossip" comes in.
 
-Using the proof-of-burn system, any peer that recieves a message from another peer can verify that the message is valid, and if so, it stores the message and then "gossips" by broadcasting the message to all nearby peers. This technique distributes messages like a viral infection, guaranteeing that every participant will eventually being storing a copy of the message. 
+Using the proof-of-burn system, any peer that receives a message from another peer can verify that the message is valid, and if so, it stores the message and then "gossips" by broadcasting the message to all nearby peers. This technique distributes messages like a viral infection, guaranteeing that every participant will eventually being storing a copy of the message. 
 
 When a new peer joins the network, they can request a list of all the gossip they missed, allowing their client to quickly load all the latest listings and reviews. We now end up with a platform that is globally synchronized with complete decentralization and persistence, and since you can browse offline from your local copy, no advertiser can snoop on what products you're searching for and ordering.
 
@@ -216,7 +216,7 @@ During an order, the funds are temporarily locked in a [2-of-3 joint account](ht
 
 All included cases and their cosigners can be seen below:
 
-| Escalated? | Buyer | Seller | Escrow    | Funds receipient | Purpose
+| Escalated? | Buyer | Seller | Escrow    | Funds recipient | Purpose
 |-----------|-------|--------|-----------|------------------|---------
 |           |       | 🔑     | 🔑        | Seller          | Order auto-finalize timer expired
 |           | 🔑    |        | 🔑        | Seller          | Buyer finalized early

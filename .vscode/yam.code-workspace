@@ -9,7 +9,8 @@
   ],
   "settings": {
     "html.validate.styles": false,
-    "html.validate.scripts": true
+    "html.validate.scripts": true,
+    "cSpell.words": ["MONERO"]
   }
   //   "settings": {
   //     "github.copilot.enable": {

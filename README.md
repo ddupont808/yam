@@ -14,7 +14,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License">
   </a>
   <a href="https://nodejs.org/">
-      <img src="https://img.shields.io/badge/nodejs-v16.13.1-blue.svg?style=flat" alt="nodejs">
+      <img src="https://img.shields.io/badge/nodejs-v16.17.0-blue.svg?style=flat" alt="nodejs">
   </a>
   <a href="https://www.electronjs.org/">
       <img src="https://img.shields.io/badge/electron-v20.0.3-blue.svg?style=flat" alt="electron">
@@ -36,7 +36,7 @@
 
 Welcome! `yam` is a project that aims to create a secure and decentralized marketplace. Cryptographic techniques ensure both buyer and seller protection from fraud and abuse, while keeping orders non-custodial and private. By default `yam`, will try to route all traffic through the Tor network.
 
-`yam` can be used by developers as a [nodejs](#WIP) module, a [command line utility](#WIP), or via a [RPC](#api) interface.
+`yam` can be used by developers as a [nodejs](#WIP) module, a [command line utility](#WIP), or via a [RPC](#api) interface. 
 
 <p align="center">
 <br />
@@ -62,7 +62,7 @@ Welcome! `yam` is a project that aims to create a secure and decentralized marke
 
 > ⚠ For non-developers, we highly recommend using the [electron client](#WIP) over the web urls. The websites cannot provide true multisig orders nor many of security options bundled into the client. Using the client also also helps keep the `yam` network strong 💜💜💜
 
-To start using the `yam` marketplace, we recommend [downloading the latest electron client from the from the Releases tab](https://github.com/mymonero/mymonero-app-js/releases/latest).
+To start using the `yam` marketplace, we recommend [downloading the latest electron client from the from the Releases tab](https://github.com/ddupont808/yam/releases/latest).
 
 Alternatively, we also provide a few websites and onion services that use the latest build of the client:
 
@@ -77,75 +77,36 @@ Alternatively, we also provide a few websites and onion services that use the la
 ### From Source
 
 ```BASH
-# Clone the repo and install the dependencies.
+# Clone the repo
 $ git clone https://github.com/ddupont808/yam
 $ cd yam
 
-# Download the latest monerod binaries
-$ 
-# TODO: some command that 
-# downloads https://downloads.getmonero.org/cli/monero-win-x64-v0.18.1.0.zip 
-# and extracts it to ./src/assets/monero/monero-win-x64-v0.18.1.0/
+# Download and verify the latest monerod binaries
+$ npm run setup:monerod
 
+# Install the project dependencies
 $ npm install
 ```
 
-To start the web server in development mode, run the following:
-> ✅ TODO: this actually works ✅
+To start `yam` in development mode, run the following:
 ```BASH
 # Start the monero daemon, only if it is not already running.
 $ npm run monerod
 $ npm run monero-rpc
 
-# Serve the web server in development mode.
+# Serve the web server in development mode at http://localhost:8000.
 $ npm run dev
 ```
 
-To start the desktop client, run the following:
-> ⚠ TODO: this does not work yet ⚠
-```BASH
-$ npm run launch
-```
-
-To start the cli, run the following:
-> ⚠ TODO: this does not work yet ⚠
-```BASH
-# Start the monero daemon, only if it is not already running.
-$ npm run monerod
-$ npm run monero-rpc
-
-# Run in cli mode.
-$ npm run cli
-```
-
-To start the rpc server, run the following:
-> ⚠ TODO: this does not work yet ⚠
-```BASH
-# Start the monero daemon, only if it is not already running.
-$ npm run monerod
-$ npm run monero-rpc
-
-# Run in cli mode.
-$ npm run rpc
-```
-
-> ⚠ TODO: the above should be refactored into like ⚠
-```BASH
-$ npm run dev -- --rpc-port=8080 --headless   # serve as watched RPC at http://127.0.0.1:8080
-$ npm run dev -- --http-port=8000 --headless  # this would be equiv to just npm run dev atm
-$ npm run dev -- --http-port=8000             # start the web server but also display it in an electron window
-```
-> ⚠ w/ headless meaning don't open electron ⚠ 
-
 ### For Developers
-> ⚠ TODO: this does not work yet ⚠
+> ⚠ Not yet implemented
 ```typescript
 import yam from yam;
 
-// start the ssb node
-const stack = new yam.Client();
+// start ssb node with the default plugin stack
+const stack = yam.node({});
 
-// host a marketplace at 8080
+// host a marketplace at http://127.0.0.1:8080
 stack.web.listen(8080, (err: Error | null, address: string) => {
   if (err) {
     console.error(err);
@@ -173,6 +134,8 @@ stack.web.listen(8080, (err: Error | null, address: string) => {
 Due to the autonomous and decentralized nature of a gossip network, mechanisms must be put in place to prove if activity is valid. This important task is currently enforced via "proof-of-burn", an efficient consensus-mechanism with minimal energy waste (see [Security](#security)).
 
 Proof systems ensure the `yam` experience stays stable and enjoyable, while also protecting you from bot spam creating listings or leaving product reviews.
+
+`yam` is also bundled with a user-friendly web UI and a multi-user HTTP server. The web UI is still in very early development and will likely be moved into a seperate repo.
 
 ![](https://raw.githubusercontent.com/ddupont808/yam/main/src/assets/screenshot.png)
 

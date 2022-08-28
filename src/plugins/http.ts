@@ -13,6 +13,8 @@ import fastifyCookie from "@fastify/cookie";
 // import fastifySession from "@fastify/session";
 import path from "path";
 import { Server } from "http";
+import { Stack } from "../types";
+import { number } from "yargs";
 
 const util = require("util");
 const { pipeline } = require("stream");
@@ -24,7 +26,7 @@ let server: FastifyInstance;
 
 @plugin("0.0.1")
 class web {
-  constructor(api: any, opts: any) {
+  constructor(api: Stack, opts: any) {
     server = Fastify({
       logger: true,
     });
@@ -83,26 +85,16 @@ class web {
       reply.redirect("/");
     });
 
-    // server.get("/test", (req, reply) => {
-    //   api.db.query(
-    //     where(and(type("item"))),
-    //     toCallback((err: any, items: any) => {
-    //       reply.view("/index.ejs", { text: "text", items });
-    //     })
-    //   );
-    // });
+    const start = async () => {
+      try {
+        await server.listen({ port: process.env.YAM_HTTP_PORT });
+      } catch (err) {
+        server.log.error(err);
+        process.exit(1);
+      }
+    };
 
-    // server.get("/test", (req, reply) => {
-    //   api.item.create(
-    //     { title: "test", description: "test" },
-    //     (err: any, itemId: any) => {
-    //       reply.view("/views/index.ejs", {
-    //         text: "your post id: ",
-    //         items: itemId,
-    //       });
-    //     }
-    //   );
-    // });
+    start();
   }
 
   @local()

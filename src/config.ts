@@ -23,11 +23,13 @@ export default {
     "ssb-db2/compat/feedstate",
     "ssb-db2/compat/ebt",
 
+    require("./plugins/logger"),
+
     require("./plugins/identities"),
 
     require("./plugins/item"),
 
-    require("./plugins/web"),
+    require("./plugins/http"),
 
     require("./plugins/site"),
     require("./plugins/site/api/items"),

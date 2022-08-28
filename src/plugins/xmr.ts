@@ -14,44 +14,49 @@ class xmr {
   walletRpc: any;
 
   constructor(api: Stack, opts: any) {
-    this.init();
-  }
+    (async () => {
+      console.log(api);
+      api.logger.info("Establishing connection to monero-wallet-rpc");
 
-  async init() {
-    console.log("Establishing connection to monero-wallet-rpc");
+      /** https://github.com/monero-ecosystem/monero-javascript#sample-code */
 
-    /** https://github.com/monero-ecosystem/monero-javascript#sample-code */
+      this.walletRpc = await monerojs.connectToWalletRpc(
+        process.env.XMR_WALLET_RPC || "http://localhost:28088"
+      );
 
-    this.walletRpc = await monerojs.connectToWalletRpc(
-      "http://localhost:28088"
-    );
+      if (!(await this.walletRpc.isClosed())) await this.walletRpc.close();
 
-    if (!(await this.walletRpc.isClosed())) await this.walletRpc.close();
+      api.logger.info("Opening wallet");
 
-    console.log("Opening wallet");
+      await this.walletRpc.openWallet(
+        "sample_stagenet_wallet_rpc",
+        "supersecretpassword123"
+      );
 
-    await this.walletRpc.openWallet(
-      "sample_stagenet_wallet_rpc",
-      "supersecretpassword123"
-    );
+      api.logger.info("Fetching address...");
+      let address = await this.walletRpc.getPrimaryAddress(); // 555zgduFhmKd2o8rPUz...
+      api.logger.info("Fetching balance...");
+      let balance = await this.walletRpc.getBalance(); // 533648366742
+      api.logger.info("Fetching txs...");
+      let txs = await this.walletRpc.getTxs(); // get transactions containing transfers to/from the wallet
 
-    console.log("Fetching address...");
-    let address = await this.walletRpc.getPrimaryAddress(); // 555zgduFhmKd2o8rPUz...
-    console.log("Fetching balance...");
-    let balance = await this.walletRpc.getBalance(); // 533648366742
-    console.log("Fetching txs...");
-    let txs = await this.walletRpc.getTxs(); // get transactions containing transfers to/from the wallet
+      api.logger.info(`fee address = ${address}, balance = ${balance}`);
+      api.logger.info(txs);
 
-    console.log(`fee address = ${address}, balance = ${balance}, txs = ${txs}`);
+      api.logger.info("wallet opened...");
 
-    const ex =
-      "5Hg1irtxEi7KiJsASfx15NRSEizy4KjAVKgaSAZx4obd7US3R4FFtin16taVGMLvGtRXTygJY7EsMKULqneBDaF9RQvUb3GHFybHmXZx7A";
-    console.log((await this.walletRpc.decodeIntegratedAddress(ex)).toJson());
+      const ex =
+        "5Hg1irtxEi7KiJsASfx15NRSEizy4KjAVKgaSAZx4obd7US3R4FFtin16taVGMLvGtRXTygJY7EsMKULqneBDaF9RQvUb3GHFybHmXZx7A";
+      api.logger.info(
+        (await this.walletRpc.decodeIntegratedAddress(ex)).toJson()
+      );
 
-    // const integratedAddress = await this.walletRpc.getIntegratedAddress(
-    //   burnerAddress
-    // );
-    // console.log(integratedAddress.toJson());
+      const integratedAddress = await this.walletRpc.getIntegratedAddress(
+        burnerAddress
+      );
+
+      api.logger.info(integratedAddress.toJson());
+    })();
   }
 
   getFeeAddress(): string {
@@ -78,17 +83,17 @@ class xmr {
     });
 
     for (const tx of txs) {
-      console.log(tx.toJson());
+      api.logger.info(tx.toJson());
 
       /** check_tx_key */
       const txId = tx.getHash();
 
       const proof = await this.getTxProof(txId);
 
-      console.log(`get_tx_proof = ${proof}`);
+      api.logger.info(`get_tx_proof = ${proof}`);
 
       const isValid = this.checkTxProof(txId, proof);
-      console.log(`check_tx_proof`);
+      api.logger.info(`check_tx_proof`);
     }
   }
 
@@ -112,8 +117,8 @@ class xmr {
       signature
     );
 
-    console.log("Received fee proof!");
-    console.log(txProof.toJson());
+    api.logger.info("Received fee proof!");
+    api.logger.info(txProof.toJson());
 
     // https://github.com/monero-ecosystem/monero-javascript/blob/04a1df09247ac72eae7b5597dbfd616e24953227/src/main/js/common/biginteger.js#L762
     if (
@@ -143,10 +148,10 @@ class xmr {
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" },
           });
-          console.log(await response.text());
+          api.logger.info(await response.text());
           const data = await response.json();
 
-          console.log(data);
+          api.logger.info(data);
 
           return reply.send(JSON.stringify(data, null, 5));
         } catch (ex: any) {

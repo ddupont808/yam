@@ -1,12 +1,5 @@
-console.log("Starting yet another SSB server...");
+import node from "./src/stack";
 
-import stack from "./src/stack";
+const stack = node({});
 
-stack.web.listen(8080, (err: Error | null, address: string) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
-
-  console.log(`Server listening at ${address}`);
-});
+export default { node };

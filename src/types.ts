@@ -1,4 +1,5 @@
 import { RouteHandlerMethod } from "fastify";
+import { Logger } from "pino";
 import { ItemDetails } from "./plugins/item";
 
 export interface Stack {
@@ -21,4 +22,5 @@ export interface Stack {
   getManifest(): any;
   id: string;
   config: any;
+  logger: Logger;
 }

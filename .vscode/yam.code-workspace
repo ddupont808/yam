@@ -4,12 +4,13 @@
       "path": ".."
     },
     {
-      "path": "..\\src\\plugins\\site"
-    },
-    {
       "path": "..\\src"
     }
-  ]
+  ],
+  "settings": {
+    "html.validate.styles": false,
+    "html.validate.scripts": true
+  }
   //   "settings": {
   //     "github.copilot.enable": {
   //       "*": false

@@ -19,7 +19,7 @@ const seperator = "\u200b";
 let record: any;
 
 function dummyFillItem(item: any) {
-  return {
+  return Object.assign(item, {
     author: "squidcode",
     installs: "1.2k",
     rating: "4.5",
@@ -56,8 +56,7 @@ function dummyFillItem(item: any) {
     ],
     image:
       "https://i.etsystatic.com/26903548/r/il/56a6e4/2763703080/il_340x270.2763703080_92xy.jpg",
-    ...item,
-  };
+  });
 }
 
 @plugin("0.0.1")

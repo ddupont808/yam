@@ -6,8 +6,7 @@ config.plugins
   .map((p) => (typeof p === "string" ? require(p) : p))
   .forEach(stack.use.bind(stack));
 
-export default stack.call(null, {});
-console.log(`SSB server started on port ${config.port}`);
+export default stack;
 
 /*
 

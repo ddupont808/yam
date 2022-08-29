@@ -10,7 +10,17 @@
   "settings": {
     "html.validate.styles": false,
     "html.validate.scripts": true,
-    "cSpell.words": ["MONERO"]
+    "cSpell.words": [
+      "bipf",
+      "Fastify",
+      "MONERO",
+      "monerod",
+      "monerojs",
+      "muxrpc",
+      "sbot",
+      "stagenet",
+      "txid"
+    ]
   }
   //   "settings": {
   //     "github.copilot.enable": {

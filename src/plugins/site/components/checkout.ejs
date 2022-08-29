@@ -1,6 +1,6 @@
 <% 
 const path = `/item/${encodeURIComponent(item.key)}`;
-console.log(item);
+console.log(item); 
 // TODO: remove the %= /*id*/ % stuff
 %>
 <form class="w-full h-full">
@@ -24,7 +24,7 @@ console.log(item);
   </modal>
   <div class="relative h-full overflow-hidden border border-opacity-50 rounded-md drop-shadow-sm border-zinc-800 bg-zinc-700">
     <div class="flex flex-col h-full bg-zinc-800">
-      <a href="<%= path %>" target="_parent" class="flex-grow bg-center bg-contain" style="background-image: url(<%= item.image %>);">
+      <a href="<%= path %>" target="_parent" class="flex-grow bg-center bg-contain" style="background-image: url(<%= item.images[0] %>);">
       </a>
 
       <!-- Favorite button -->

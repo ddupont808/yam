@@ -13,6 +13,7 @@ const logger = pino({
 
 const xmrBinariesPath = join(__dirname, "../../src/assets/monero");
 const walletPath = join(__dirname, "../../.usr/xmr_wallets");
+const walletFile = join(walletPath, "sample_stagenet_wallet_rpc_viewonly");
 
 const getVersion = (folder: string) => {
   const match = folder.match(/-v(\d*(.([\d]+))*)/);
@@ -96,8 +97,12 @@ readdir(xmrBinariesPath).then(async (folders) => {
     "--stagenet",
     "--rpc-bind-port",
     moneroWalletPort,
-    "--wallet-dir",
-    walletPath,
+    // "--wallet-dir",
+    // walletPath,
+    "--wallet-file",
+    walletFile,
+    "--password",
+    "password",
     "--disable-rpc-login",
     "--trusted-daemon",
     "--daemon-port",

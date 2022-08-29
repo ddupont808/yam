@@ -87,7 +87,9 @@ class web {
 
     const start = async () => {
       try {
-        await server.listen({ port: process.env.YAM_HTTP_PORT });
+        await server.listen({
+          port: parseInt(process.env.YAM_HTTP_PORT || "8080"),
+        });
       } catch (err) {
         server.log.error(err);
         process.exit(1);
@@ -100,6 +102,11 @@ class web {
   @local()
   public get(url: string, callback: RouteHandlerMethod) {
     return server.get(url, callback);
+  }
+
+  @local()
+  public post(url: string, callback: RouteHandlerMethod) {
+    return server.post(url, callback);
   }
 
   @local()

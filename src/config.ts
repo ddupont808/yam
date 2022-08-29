@@ -1,8 +1,22 @@
 export default {
   port: 9999,
-  local: false,
+  local: true,
   logging: {
     level: "info",
+  },
+  connections: {
+    incoming: {
+      net: [
+        {
+          port: !process.env.USE_TMP ? 6959 : undefined,
+          scope: "device",
+          transform: "shs",
+        },
+      ],
+    },
+    outgoing: {
+      net: [{ transform: "shs" }],
+    },
   },
   /* crypto.randomBytes(32).toString('base64') */
   appKey: "1Q6TiTCRYn9dv1bOkLs9yvnQ76DBMk4I5M2H+VvGdW0=",
@@ -13,19 +27,29 @@ export default {
   },
   path: "./.usr",
   plugins: [
-    // "ssb-master",
-    "ssb-onion",
+    // "ssb-master", // allows you to define "master" IDs in the config which are given the full rights of the local main ID
+    // "ssb-onion",
+    "ssb-unix-socket",
 
-    "ssb-db",
-    "ssb-db2",
+    "ssb-db2", // https://github.com/ssbc/ssb-db2/blob/79b3992ce48b949a7c48e496da7703bbb0949445/test/create.js
+    // "ssb-box2", // https://github.com/ssbc/ssb-box2#usage-in-ssb-db2
+    "ssb-buttwoo",
+    "ssb-friends",
+    "ssb-conn",
+    "ssb-blobs",
+
+    /** Needed for CRUT */
     "ssb-db2/compat/db",
     "ssb-db2/compat/history-stream",
     "ssb-db2/compat/feedstate",
-    "ssb-db2/compat/ebt",
+
+    // "ssb-db2/compat/ebt",
+    // "ssb-ebt",
+    // "ssb-db2/full-mentions",
 
     require("./plugins/logger"),
 
-    require("./plugins/identities"),
+    // require("./plugins/identities"),
 
     require("./plugins/item"),
 
@@ -37,16 +61,12 @@ export default {
 
     require("./plugins/debug"),
 
-    // "ssb-db2/full-mentions",
-
     require("./plugins/xmr"),
 
-    "ssb-blobs",
-    "ssb-friends",
-    "ssb-threads",
-    "ssb-ebt",
-    "ssb-replication-scheduler",
-    "ssb-conn",
+    require("./plugins/replicator"),
+
+    // "ssb-threads",
+    // "ssb-replication-scheduler",
   ],
   master: [
     /**

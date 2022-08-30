@@ -27,10 +27,10 @@ See [docs/plugins.md](https://github.com/ddupont808/yam/blob/main/docs/plugins.m
 
 When submitting a pull request for review, please first rebase and squash your commits.
 
-1. Checkout the latest version from master, e.g.: `git checkout master && git pull upstream master`
+1. Checkout the latest version from main, e.g.: `git checkout main && git pull upstream main`
 2. Checkout your feature branch, e.g.: `git checkout your_branch`
 3. Optionally make a backup branch just in case something goes wrong, e.g.: `git checkout -b your_branch_bkp && git checkout your_branch`
-4. Rebase on master: `git rebase master`
+4. Rebase on main: `git rebase main`
 5. Squash your commits: `git reset --soft <last hash before your first commit>`
 6. Commit your changes to a single commit: `git commit`
 7. Push your local branch to your remote repository: `git push --force`
@@ -39,4 +39,4 @@ If you have a PR open on that branch, it'll be updated automatically.
 
 ## Protocol Guide
 
-For documentation of the yam protocol, see [docs/protocol.md](protocol.md).
+The yam protocol is still in the design process. For documentation of the current yam protocol, see [docs/protocol.md](protocol.md).

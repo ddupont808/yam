@@ -50,11 +50,11 @@ This project provides an open network for building your own distributed, peer-to
 
  - There is **no token**: No special token is needed to use the network. Transactions are secured by non-custodial multisignature transactions on the Monero network.
 
-<p align="center">
+<!-- <p align="center">
 <br />
-<a href="#roadmap">💜 If you want to support this project, please consider donating or volunteering bandwidth 💜</a>
+<a href="#support">💜 If you want to support this project, please consider donating or volunteering bandwidth 💜</a>
 </p>
-<br/>
+<br/> -->
 
 # Project Status
 

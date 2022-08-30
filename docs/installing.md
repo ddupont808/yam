@@ -73,14 +73,14 @@ YAM_LOGGER_LEVEL=trace
 MONEROD_RPC_PORT=38081
 # Set the hostname of your monerod instance, default value is localhost
 MONEROD_RPC_HOST=localhost
-# Set the RPC address of your monero-wallet-rpc instance, don't use with MONEROD_RPC_PORT or MONEROD_RPC_HOST since will override the values of both
+# Set the RPC address of your monero-wallet-rpc instance, don't use with MONEROD_RPC_PORT or MONEROD_RPC_HOST as this option overrides the values of both
 MONEROD_RPC_ADDRESS=http://localhost:38681
 
 # Set the the monero-wallet-rpc port, default value is 28088
 MONERO_WALLET_RPC_PORT=28088
 # Set the hostname of your monero-wallet-rpc instance, default value is localhost
 MONERO_WALLET_RPC_HOST=localhost
-# Set the RPC address of your monero-wallet-rpc instance, don't use with MONERO_WALLET_RPC_PORT or MONERO_WALLET_RPC_HOST since will override the values of both
+# Set the RPC address of your monero-wallet-rpc instance, don't use with MONERO_WALLET_RPC_PORT or MONERO_WALLET_RPC_HOST as this option overrides the values of both
 MONERO_WALLET_RPC_ADDRESS=http://localhost:28088
 ```
 

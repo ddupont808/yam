@@ -100,13 +100,13 @@ Once the network is ready, the best way to support it will be hosting your own n
 
 `87She2WxtcKYqFcuwzqd8QdpVz45myWVHTwe68Uz7agvcGYNNHdafcGHCsUzXQy6n3aaku1T4eamN3TdYyGvmqtZRnyDsrc`
 
-![](https://raw.githubusercontent.com/ddupont808/yam/main/docs/assets/qrcodexmr.png | width=256)
+![](https://raw.githubusercontent.com/ddupont808/yam/main/docs/assets/qrcodexmr.png)
 
 ### Bitcoin
 
 `3JVzbGzSNk4ArkjYV5wU6RtCbKWKuH8EoR`
 
-![](https://raw.githubusercontent.com/ddupont808/yam/main/docs/assets/qrcodebtc.png | width=256)
+![](https://raw.githubusercontent.com/ddupont808/yam/main/docs/assets/qrcodebtc.png)
 
 <!-- Uncomment this once a live test or prod network is ready -->
 <!-- The `yam` project does not use an existing peer-to-peer network, meaning it relies on volunteers like you to donate bandwidth and host the network. **Please consider running an instance of yam on your machine.** This will allow you to help us build a network that is:

@@ -39,4 +39,4 @@ If you have a PR open on that branch, it'll be updated automatically.
 
 ## Protocol Guide
 
-The yam protocol is still in the design process. For documentation of the current yam protocol, see [docs/protocol.md](protocol.md).
+For documentation of the yam protocol, see [docs/protocol.md](protocol.md).

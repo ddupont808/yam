@@ -63,8 +63,8 @@ This project provides an open network for building your own distributed, peer-to
 We are still working on creating a live test network that will use Monero's stagenet for testing. To help out, see [the instructions to build yam and connect to a local test network](https://github.com/ddupont808/yam/blob/main/docs/installing.md). This project is still very much in development, expect major changes in the protocol that may break compatibility with previous local test networks.
 
 Main repositories:
- - [yam](#) - This repository, the core of yam
- - yam-ui - A proof-of-concept web ui, it will be refactored out of `src/plugins/site`
+ - [yam](#) - This repository, reference implementation of the yam protocol
+ - [yam-ui](src/plugins/site/) - A proof-of-concept web ui. Will be refactored out of `src/plugins/site` into its own repository.
 
 If you wish to help, take a look at the repositories above and look for open issues.
 

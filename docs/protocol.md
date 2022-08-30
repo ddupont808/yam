@@ -1,6 +1,8 @@
 # Protocol Guide
 
-The following is an intro to the core concepts of yam, which is based upon the offline-first [Secure Scuttlebutt](https://ssbc.github.io/scuttlebutt-protocol-guide/) peer-to-peer communication protocol.
+> **⚠️ The yam protocol is still in the design phase as we work on the reference implemention ⚠️**
+
+The following is an intro to the core concepts of yam. The yam network is offline-first and based upon the [Secure Scuttlebutt](https://ssbc.github.io/scuttlebutt-protocol-guide/) peer-to-peer communication protocol.
 
 ## Identities
 

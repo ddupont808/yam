@@ -5,14 +5,16 @@
   "description": "yet another market",
   "main": "dist/index.js",
   "scripts": {
+    "setup:monero": "ts-node utils/scripts/fetch-xmr | pino-pretty",
+    "spawn:monero": "ts-node -r dotenv/config utils/scripts/start-xmr",
+    "dev": "ts-node index.ts | pino-pretty -i hostname,pid -t HH:MM:ss.l -c",
+    "dev:watch": "ts-node-dev -r dotenv/config --respawn --transpile-only --exit-child --watch src/**.ts,package.json --ignore-watch src/assets index.ts | pino-pretty -i hostname,pid -t HH:MM:ss.l -c",
+    "dev:tmp": "USE_TMP=1 ts-node-dev -r dotenv/config --respawn --transpile-only --exit-child --watch src/**.ts,package.json --ignore-watch src/assets index.ts | pino-pretty -i hostname,pid -t HH:MM:ss.l -c",
     "build": "tsc -p tsconfig.json",
     "start": "ts-node index.ts | pino-pretty -i hostname,pid -t HH:MM:ss.l -c",
-    "dev": "ts-node-dev -r dotenv/config --respawn --transpile-only --exit-child --watch src/**.ts,package.json --ignore-watch src/assets index.ts | pino-pretty -i hostname,pid -t HH:MM:ss.l -c",
-    "dev:tmp": "USE_TMP=1 ts-node-dev -r dotenv/config --respawn --transpile-only --exit-child --watch src/**.ts,package.json --ignore-watch src/assets index.ts | pino-pretty -i hostname,pid -t HH:MM:ss.l -c",
     "docs": "docsify serve docs -o",
     "serve:docs": "docsify serve docs",
-    "setup:monero": "ts-node utils/scripts/fetch-xmr | pino-pretty",
-    "spawn:monero": "ts-node -r dotenv/config utils/scripts/start-xmr"
+    "clean": "rimraf tmp"
   },
   "dependencies": {
     "@fastify/cookie": "^7.0.0",
@@ -63,6 +65,7 @@
     "@types/yauzl": "^2.10.0",
     "nodemon": "^2.0.18",
     "pino-pretty": "^8.1.0",
+    "rimraf": "^3.0.2",
     "ssb-feed-format": "^2.2.2",
     "tailwindcss": "^3.1.4",
     "ts-node": "^10.8.1",

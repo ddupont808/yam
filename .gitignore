@@ -4,8 +4,6 @@ tmp
 logs
 build
 
-docs/*
-
 src/assets/tor/*
 src/assets/monero/*
 src/assets/bitcoin/*

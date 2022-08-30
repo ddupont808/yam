@@ -88,7 +88,9 @@ MONERO_WALLET_RPC_ADDRESS=http://localhost:28088
 
 To test the peer-to-peer aspect of your local network, start another yam node by running `npm run dev:tmp`
 
-This is runs `npm run dev` in `tmp` with seperate keypairs (identities) and databases. This also ignores the environment variable `YAM_HTTP_PORT`, but every other environment variable will still be loaded if you want to run the yam node with on a different Monero node.
+This is runs `npm run dev` in `tmp` with seperate keypairs (identities) and databases. This also ignores the environment variable `YAM_HTTP_PORT`.
+
+When done, use `npm run clean` to delete the files created by the temp nodes.
 
 ### Using yam as a typescript module
 
